@@ -83,7 +83,17 @@ class TriviaViewController: UIViewController {
   }
   
   private func isCorrectAnswer(_ answer: String) -> Bool {
-    return answer == questions[currQuestionIndex].correctAnswer
+    let isCorrect = answer == questions[currQuestionIndex].correctAnswer
+    if currQuestionIndex != questions.count - 1 {
+        let text = isCorrect ? "Correct!" : "Incorrect!"
+        let alertController = UIAlertController(title: "Result",
+                                                message: text,
+                                                preferredStyle: .alert)
+        let continueAction = UIAlertAction(title: "Continue", style: .default, handler: nil)
+        alertController.addAction(continueAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    return isCorrect
   }
   
   private func showFinalScore() {
