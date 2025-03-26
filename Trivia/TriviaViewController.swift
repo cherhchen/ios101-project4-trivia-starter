@@ -42,19 +42,31 @@ class TriviaViewController: UIViewController {
     categoryLabel.text = question.category.htmlUnescape()
     let answers = ([question.correctAnswer] + question.incorrectAnswers).shuffled()
     if answers.count > 0 {
-      answerButton0.setTitle(answers[0], for: .normal)
+      answerButton0.setTitle(answers[0].htmlUnescape(), for: .normal)
+    }
+    else {
+      answerButton0.isHidden = true
     }
     if answers.count > 1 {
-      answerButton1.setTitle(answers[1], for: .normal)
+      answerButton1.setTitle(answers[1].htmlUnescape(), for: .normal)
       answerButton1.isHidden = false
     }
+    else {
+      answerButton1.isHidden = true
+    }
     if answers.count > 2 {
-      answerButton2.setTitle(answers[2], for: .normal)
+      answerButton2.setTitle(answers[2].htmlUnescape(), for: .normal)
       answerButton2.isHidden = false
     }
+    else {
+      answerButton2.isHidden = true
+    }
     if answers.count > 3 {
-      answerButton3.setTitle(answers[3], for: .normal)
+      answerButton3.setTitle(answers[3].htmlUnescape(), for: .normal)
       answerButton3.isHidden = false
+    }
+    else {
+      answerButton3.isHidden = true
     }
   }
   
@@ -81,7 +93,11 @@ class TriviaViewController: UIViewController {
     let resetAction = UIAlertAction(title: "Restart", style: .default) { [unowned self] _ in
       currQuestionIndex = 0
       numCorrectQuestions = 0
-      updateQuestion(withQuestionIndex: currQuestionIndex)
+      TriviaQuestionService.fetchQuestions(amount: 10) { triviaQuestions in
+        self.questions = triviaQuestions
+        self.updateQuestion(withQuestionIndex: 0)
+        print(self.questions)
+      }
     }
     alertController.addAction(resetAction)
     present(alertController, animated: true, completion: nil)
