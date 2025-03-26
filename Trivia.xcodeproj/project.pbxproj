@@ -17,6 +17,8 @@
 		9926AB4529DFAE1500860532 /* TriviaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9926AB4429DFAE1500860532 /* TriviaUITests.swift */; };
 		9926AB4729DFAE1500860532 /* TriviaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9926AB4629DFAE1500860532 /* TriviaUITestsLaunchTests.swift */; };
 		9926AB5429DFB8FA00860532 /* TriviaQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9926AB5329DFB8FA00860532 /* TriviaQuestion.swift */; };
+		F06520F72D94648100EB7D80 /* TriviaQuestionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06520F62D94648100EB7D80 /* TriviaQuestionService.swift */; };
+		F06520FC2D9479BB00EB7D80 /* HTMLEntities in Frameworks */ = {isa = PBXBuildFile; productRef = F06520FB2D9479BB00EB7D80 /* HTMLEntities */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,7 @@
 		9926AB4429DFAE1500860532 /* TriviaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaUITests.swift; sourceTree = "<group>"; };
 		9926AB4629DFAE1500860532 /* TriviaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9926AB5329DFB8FA00860532 /* TriviaQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaQuestion.swift; sourceTree = "<group>"; };
+		F06520F62D94648100EB7D80 /* TriviaQuestionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaQuestionService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F06520FC2D9479BB00EB7D80 /* HTMLEntities in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +82,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		79BC2152AAFEF0E427E3D8E2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		9926AB1729DFAE1300860532 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +96,7 @@
 				9926AB3929DFAE1500860532 /* TriviaTests */,
 				9926AB4329DFAE1500860532 /* TriviaUITests */,
 				9926AB2129DFAE1400860532 /* Products */,
+				79BC2152AAFEF0E427E3D8E2 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +117,7 @@
 				9926AB2529DFAE1400860532 /* SceneDelegate.swift */,
 				9926AB2729DFAE1400860532 /* TriviaViewController.swift */,
 				9926AB5329DFB8FA00860532 /* TriviaQuestion.swift */,
+				F06520F62D94648100EB7D80 /* TriviaQuestionService.swift */,
 				9926AB2929DFAE1400860532 /* Main.storyboard */,
 				9926AB2C29DFAE1400860532 /* Assets.xcassets */,
 				9926AB2E29DFAE1400860532 /* LaunchScreen.storyboard */,
@@ -218,6 +231,9 @@
 				Base,
 			);
 			mainGroup = 9926AB1729DFAE1300860532;
+			packageReferences = (
+				F06520FA2D9479BB00EB7D80 /* XCRemoteSwiftPackageReference "swift-html-entities" */,
+			);
 			productRefGroup = 9926AB2129DFAE1400860532 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -261,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F06520F72D94648100EB7D80 /* TriviaQuestionService.swift in Sources */,
 				9926AB2829DFAE1400860532 /* TriviaViewController.swift in Sources */,
 				9926AB2429DFAE1400860532 /* AppDelegate.swift in Sources */,
 				9926AB5429DFB8FA00860532 /* TriviaQuestion.swift in Sources */,
@@ -600,6 +617,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F06520FA2D9479BB00EB7D80 /* XCRemoteSwiftPackageReference "swift-html-entities" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Kitura/swift-html-entities.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F06520FB2D9479BB00EB7D80 /* HTMLEntities */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F06520FA2D9479BB00EB7D80 /* XCRemoteSwiftPackageReference "swift-html-entities" */;
+			productName = HTMLEntities;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9926AB1829DFAE1300860532 /* Project object */;
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import HTMLEntities
 
 class TriviaViewController: UIViewController {
   
@@ -27,13 +28,18 @@ class TriviaViewController: UIViewController {
     addGradient()
     questionContainerView.layer.cornerRadius = 8.0
     // TODO: FETCH TRIVIA QUESTIONS HERE
+      TriviaQuestionService.fetchQuestions(amount: 10) { triviaQuestions in
+          self.questions = triviaQuestions
+          self.updateQuestion(withQuestionIndex: 0)
+          print(self.questions)
+      }
   }
   
   private func updateQuestion(withQuestionIndex questionIndex: Int) {
     currentQuestionNumberLabel.text = "Question: \(questionIndex + 1)/\(questions.count)"
     let question = questions[questionIndex]
-    questionLabel.text = question.question
-    categoryLabel.text = question.category
+    questionLabel.text = question.question.htmlUnescape()
+    categoryLabel.text = question.category.htmlUnescape()
     let answers = ([question.correctAnswer] + question.incorrectAnswers).shuffled()
     if answers.count > 0 {
       answerButton0.setTitle(answers[0], for: .normal)
